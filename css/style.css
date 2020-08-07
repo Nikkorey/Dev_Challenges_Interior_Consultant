@@ -73,16 +73,71 @@ img {
           align-items: center;
 }
 
-.nav__burger {
+.nav__menu {
+  z-index: 1500;
+  cursor: pointer;
+}
+
+.nav__menu-burger {
   font-size: 3rem;
 }
 
-.nav__close {
+.nav__menu-close {
   display: none;
   font-size: 3rem;
 }
 
+.nav__list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1400;
+  opacity: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+.nav__item-link {
+  display: block;
+  color: #fff;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.menu-open .nav__menu .nav__menu-close {
+  display: block;
+}
+
+.menu-open .nav__menu .nav__menu-burger {
+  display: none;
+}
+
+.menu-open .nav__list {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 .logo {
+  display: block;
   text-transform: uppercase;
   border: solid 0.1rem;
   padding: 1rem;
@@ -181,16 +236,32 @@ img {
     display: none;
   }
   .nav__list {
-    display: block;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    position: initial;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: initial;
+        -ms-flex-pack: initial;
+            justify-content: initial;
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
     font-style: normal;
     font-weight: bold;
     font-size: 1.8rem;
   }
   .nav__item {
     margin-left: 5rem;
+  }
+  .nav__menu-burger {
+    display: none;
+  }
+  .nav__item-link {
+    margin-bottom: 0;
   }
 }
 
